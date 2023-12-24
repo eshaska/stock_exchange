@@ -134,7 +134,7 @@ bool Exchange::sufficient_assets(const Order &taker_order) {
 Order Exchange::GetRemainderTakerOrder(const Order &taker_order, const Trade &trade) {
  int unfulfilled_amount = taker_order.amount-trade.amount;
  Order new_taker_order = Order{"empty", "empty", "empty", 0, 0};
- //used to know when there was no unfufilled amount^
+ //used to know when there was no unfulfilled amount^
  if (unfulfilled_amount>0) {
    new_taker_order = Order{taker_order.username, taker_order.side, taker_order.asset, unfulfilled_amount, taker_order.price};
  }
@@ -168,7 +168,7 @@ bool Exchange::AddOrder(Order taker_order) {
        }
    }
  HandleRemainingBitsOfOrder(taker_order, trade.amount, trade.price, true);
- //handles any unfufilled parts of the order
+ //handles any unfulfilled parts of the order
  return true;
  }
  else {
